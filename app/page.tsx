@@ -27,8 +27,10 @@ export default function Home() {
         const sectionTop = section.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
         if (sectionTop < windowHeight * 0.75) {
-          section.style.opacity = "1";
-          section.style.transform = "translateY(0)";
+          // Fix: Cast section to HTMLElement to access style property
+          const htmlSection = section as HTMLElement;
+          htmlSection.style.opacity = "1";
+          htmlSection.style.transform = "translateY(0)";
         }
       });
     };
@@ -36,9 +38,11 @@ export default function Home() {
     // Initial styles for animation
     const sections = document.querySelectorAll(".section");
     sections.forEach((section) => {
-      section.style.opacity = "0";
-      section.style.transform = "translateY(20px)";
-      section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+      // Fix: Cast section to HTMLElement to access style property
+      const htmlSection = section as HTMLElement;
+      htmlSection.style.opacity = "0";
+      htmlSection.style.transform = "translateY(20px)";
+      htmlSection.style.transition = "opacity 0.6s ease, transform 0.6s ease";
     });
 
     // Run animation on load and scroll
