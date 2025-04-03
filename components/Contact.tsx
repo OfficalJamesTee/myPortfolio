@@ -181,7 +181,6 @@
 
 
 
-
 "use client";
 
 import type React from "react";
@@ -244,7 +243,8 @@ export default function Contact() {
           visible: true,
         });
       }
-    } catch (_) {
+    } catch {
+      // Removed the unused variable completely
       setFormStatus({
         message: "An error occurred. Please try again later.",
         type: "error",
@@ -366,4 +366,5 @@ export default function Contact() {
     </section>
   );
 }
+
 
